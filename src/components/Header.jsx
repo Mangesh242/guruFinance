@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -13,14 +13,14 @@ import {
   Container,
   useTheme,
   useMediaQuery,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import SecurityIcon from '@mui/icons-material/Security';
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import SecurityIcon from "@mui/icons-material/Security";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -29,22 +29,22 @@ const Header = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setMobileOpen(false);
   };
 
   const menuItems = [
-    { label: 'Home', section: 'hero' },
-    { label: 'Services', section: 'services' },
-    { label: 'About', section: 'about' },
-    { label: 'Contact', section: 'contact' },
+    { label: "Home", section: "hero" },
+    { label: "Services", section: "services" },
+    { label: "About", section: "about" },
+    { label: "Contact", section: "contact" },
   ];
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <SecurityIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
+        <SecurityIcon sx={{ mr: 1, verticalAlign: "middle" }} />
         GuruFinance
       </Typography>
       <List>
@@ -53,7 +53,7 @@ const Header = () => {
             <ListItemText
               primary={item.label}
               onClick={() => scrollToSection(item.section)}
-              sx={{ textAlign: 'center', cursor: 'pointer', py: 1 }}
+              sx={{ textAlign: "center", cursor: "pointer", py: 1 }}
             />
           </ListItem>
         ))}
@@ -66,12 +66,16 @@ const Header = () => {
       <AppBar position="sticky" elevation={2}>
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            <SecurityIcon sx={{ display: 'flex', mr: 1 }} />
+            <SecurityIcon sx={{ display: "flex", mr: 1 }} />
             <Typography
               variant="h6"
               noWrap
               component="div"
-              sx={{ flexGrow: 1, display: 'flex', fontWeight: 700 }}
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                fontWeight: 700,
+              }}
             >
               GuruFinance
             </Typography>
@@ -86,7 +90,7 @@ const Header = () => {
                 <MenuIcon />
               </IconButton>
             ) : (
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Box sx={{ display: "flex", gap: 2 }}>
                 {menuItems.map((item) => (
                   <Button
                     key={item.label}
@@ -109,8 +113,8 @@ const Header = () => {
         onClose={handleDrawerToggle}
         ModalProps={{ keepMounted: true }}
         sx={{
-          display: { xs: 'block', md: 'none' },
-          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: 240 },
         }}
       >
         {drawer}
